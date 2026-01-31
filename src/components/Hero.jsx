@@ -44,19 +44,19 @@ const Hero = () => {
 </motion.h1>
 
 
-      <img src="./images/pea.png" alt="pea" className="pea-under-title" />
+      <img src="/images/pea.png" alt="pea" className="pea-under-title" />
 
-      <img src="./images/tomato.png" alt="tomato" className="bg-tomato t1" />
-      <img src="./images/tomato.png" alt="tomato" className="bg-tomato t2" />
-      <img src="./images/tomato.png" alt="tomato" className="bg-tomato t3" />
-      <img src="./images/tomato.png" alt="tomato" className="bg-tomato t4" />
+      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t1" />
+      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t2" />
+      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t3" />
+      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t4" />
 
-      <img src="./images/basil1.png" alt="basil1" className="bg-basil b1" />
-      <img src="./images/basil1.png" alt="basil2" className="bg-basil b2" />
+      <img src="/images/basil1.png" alt="basil1" className="bg-basil b1" />
+      <img src="/images/basil1.png" alt="basil2" className="bg-basil b2" />
 
       <div className="bowl-container">
         <motion.img
-          src="./images/bowl.png"
+          src="/images/bowl.png"
           alt="bowl"
           className="bowl-img"
           style={{ zIndex: 5, position: 'relative' }}

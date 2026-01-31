@@ -6,57 +6,6 @@
 }
 
 .hero {
-  background-color: #F9C74F; 
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  font-family: 'Rowdies', cursive;
-}
-
-.hero-blob {
-  position: absolute;
-  top: 230px;
-  left: 510px;
-  width: 500px;
-  height: 500px;
-  background: #000;
-  border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
-  z-index: 0;
-}
-
-.hero-title {
-  position: absolute;
-  top: 200px; 
-  left: 420px; 
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 11rem;
-  font-weight: 700;
-  z-index: 1;
-  letter-spacing: 5px;
-}
-.bowl-img {
-  position: absolute;
-  top: 180px;
-  left: 400px; 
-  width: 400px;
-width: 700px;
-  z-index: 2;
-  filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5)); 
-  transition: transform 0.3s ease;
-}
-
-.bowl-img:hover {
-  transform: scale(1.05); 
-}
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.hero {
   background: radial-gradient(circle, #FFE34C 0%, #FFB900 100%);
   min-height: 100vh;
   display: flex;
@@ -100,6 +49,7 @@ width: 700px;
   position: absolute;
   opacity: 0.4;
   z-index: 1;
+  animation: float 6s ease-in-out infinite;
 }
 
 .t1 { top: 100px; left: 100px; width: 80px; }
@@ -115,11 +65,12 @@ width: 700px;
 
 .bowl-img {
   position: absolute;
-top: 30%;
+  top: 30%;
   left: 1%;
-
   width: 630px;
   z-index: 2;
+  filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
 }
 .bg-tomato{
     width: 150px;
@@ -213,4 +164,12 @@ top: 30%;
   .highlight-btn:hover {
     background: #ff1a1a;
   }
+
+/* Subtle float animation for background ingredients */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
   
