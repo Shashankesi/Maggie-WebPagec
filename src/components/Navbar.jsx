@@ -11,20 +11,32 @@ const Navbar = () => {
       transition={{ type: 'spring', stiffness: 140, damping: 12 }}
     >
       <ul className="nav-links left">
-        <li><motion.a href="#about" whileHover={{ scale: 1.06 }}>About</motion.a></li>
-        <li><motion.a href="#recipes" whileHover={{ scale: 1.06 }}>Recipes</motion.a></li>
-        <li><motion.a href="#recipes" whileHover={{ scale: 1.06 }}>Stories</motion.a></li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#about">About</a>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#recipes">Recipes</a>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#stories">Stories</a>
+        </motion.li>
 
       </ul>
 
-      <div className="logo">
+      <motion.div className="logo" whileHover={{ scale: 1.04 }}>
         <img src='/images/logo.png' alt="Logo" />
-      </div>
+      </motion.div>
 
       <ul className="nav-links right">
-        <li><motion.a href="#shop" whileHover={{ scale: 1.06 }}>Shop</motion.a></li>
-        <li><motion.a href="#contact" whileHover={{ scale: 1.06 }}>Contact</motion.a></li>
-        <li><motion.a href="#contact" whileHover={{ scale: 1.06 }}>Flavour</motion.a></li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#shop">Shop</a>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#contact">Contact</a>
+        </motion.li>
+        <motion.li whileHover={{ scale: 1.06 }}>
+          <a href="#flavour">Flavour</a>
+        </motion.li>
 
       </ul>
     </motion.nav>
