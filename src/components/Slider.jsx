@@ -45,7 +45,9 @@ A must-have for every non-veg noodle lover.`,
 const Slider = () => {
   const [index, setIndex] = useState(0);
   const [showCard, setShowCard] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
+  const intervalRef = useRef(null);
 
   const { ref: sliderRef, inView } = useInView({
     threshold: 0.3, 
@@ -74,10 +76,27 @@ const Slider = () => {
     return () => clearTimeout(timerRef.current);
   }, [index]);
 
+  // Autoplay with pause on hover
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        setIndex((prev) => (prev + 1) % slides.length);
+      }, 4000);
+    }
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPaused]);
+
   const { nutrition } = slides[index];
 
   return (
-    <div className="slider" ref={sliderRef}>
+    <div
+      className="slider"
+      ref={sliderRef}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <motion.h1
         className="range"
         initial={{ y: 50, opacity: 0 }}
@@ -87,7 +106,7 @@ const Slider = () => {
         OUR RANGE
       </motion.h1>
 
-      <button className="arrow left-arrow" onClick={prevSlide}>❮</button>
+      <motion.button className="arrow left-arrow" onClick={prevSlide} whileHover={{ scale: 1.1 }}>❮</motion.button>
 
    <div className="slider-data">
    <div className="slider-wrapper">
@@ -150,7 +169,7 @@ const Slider = () => {
 
    </div>
 
-      <button className="arrow right-arrow" onClick={nextSlide}>❯</button>
+      <motion.button className="arrow right-arrow" onClick={nextSlide} whileHover={{ scale: 1.1 }}>❯</motion.button>
     </div>
   );
 };

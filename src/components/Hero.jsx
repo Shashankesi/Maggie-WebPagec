@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import './Hero.css'
 import Navbar from './Navbar'
 
@@ -13,6 +13,11 @@ const textVariant = {
 }
 
 const Hero = () => {
+  const { scrollYProgress } = useScroll()
+  const tomatoY = useTransform(scrollYProgress, [0, 1], [0, 40])
+  const basilY = useTransform(scrollYProgress, [0, 1], [0, -30])
+  const peaY = useTransform(scrollYProgress, [0, 1], [0, 20])
+  const bowlY = useTransform(scrollYProgress, [0, 1], [0, -20])
   return (
     <div className="hero">
       <div className="hero-blob"></div>
@@ -44,22 +49,22 @@ const Hero = () => {
 </motion.h1>
 
 
-      <img src="/images/pea.png" alt="pea" className="pea-under-title" />
+      <motion.img src="/images/pea.png" alt="pea" className="pea-under-title" style={{ y: peaY }} />
 
-      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t1" />
-      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t2" />
-      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t3" />
-      <img src="/images/tomato.png" alt="tomato" className="bg-tomato t4" />
+      <motion.img src="/images/tomato.png" alt="tomato" className="bg-tomato t1" style={{ y: tomatoY }} />
+      <motion.img src="/images/tomato.png" alt="tomato" className="bg-tomato t2" style={{ y: tomatoY }} />
+      <motion.img src="/images/tomato.png" alt="tomato" className="bg-tomato t3" style={{ y: tomatoY }} />
+      <motion.img src="/images/tomato.png" alt="tomato" className="bg-tomato t4" style={{ y: tomatoY }} />
 
-      <img src="/images/basil1.png" alt="basil1" className="bg-basil b1" />
-      <img src="/images/basil1.png" alt="basil2" className="bg-basil b2" />
+      <motion.img src="/images/basil1.png" alt="basil1" className="bg-basil b1" style={{ y: basilY }} />
+      <motion.img src="/images/basil1.png" alt="basil2" className="bg-basil b2" style={{ y: basilY }} />
 
       <div className="bowl-container">
         <motion.img
           src="/images/bowl.png"
           alt="bowl"
           className="bowl-img"
-          style={{ zIndex: 5, position: 'relative' }}
+          style={{ zIndex: 5, position: 'relative', y: bowlY }}
           initial={{ y: 150, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1, ease: 'easeOut' }}
@@ -89,6 +94,8 @@ const Hero = () => {
             variants={textVariant}
             initial="hidden"
             animate="visible"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
           >
             Order Now
           </motion.button>

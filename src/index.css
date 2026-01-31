@@ -1,0 +1,13 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background: #fff;
+}
+
+#root {
+	min-height: 100vh;
+}

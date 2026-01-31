@@ -24,6 +24,7 @@
   background: #000;
   border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
   z-index: 0;
+  animation: blobPulse 8s ease-in-out infinite;
 }
 
 .hero-title {
@@ -170,6 +171,13 @@
   0% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(2deg); }
   100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Organic blob pulsing */
+@keyframes blobPulse {
+  0% { transform: scale(1) rotate(0deg); border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%; }
+  50% { transform: scale(1.04) rotate(2deg); border-radius: 45% 55% 55% 45% / 50% 55% 45% 50%; }
+  100% { transform: scale(1) rotate(0deg); border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%; }
 }
 
   

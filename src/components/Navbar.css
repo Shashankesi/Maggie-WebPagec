@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 .navbar {
-    background-color: #000;
+  background-color: #000;
     width: 1000px;
     height: 60px;
     color: white;
@@ -13,6 +13,10 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
         clip-path: polygon(
         0 0,         
         50px 100%,   
@@ -44,6 +48,23 @@
 
 .nav-links a:hover {
   color: #f9c74f; 
+}
+
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #f9c74f;
+  transition: width 0.25s ease;
+}
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .logo img {
